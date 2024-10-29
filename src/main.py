@@ -1,4 +1,3 @@
-# src/main.py
 """
 import sys
 from src.exception_handler import CustomException
@@ -15,12 +14,13 @@ if __name__ == "__main__":
         raise CustomException(e,sys)
 """
 
-# app/main.py
+# src/main.py
 import os
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from src.components.cattle_checking_llm import router
 from dotenv import load_dotenv
+import logging
 
 load_dotenv()  # Load environment variables
 app = FastAPI()
@@ -30,4 +30,5 @@ app.include_router(router)
 
 if __name__ == "__main__":
     import uvicorn
+    logging.info("Started the task")
     uvicorn.run(app, host="127.0.0.1", port=8000)

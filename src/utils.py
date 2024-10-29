@@ -2,6 +2,8 @@
 import cv2
 import numpy as np
 import os
+import re
+from PIL import Image
 from src.components.prediction import labels,df_cattle
 
 def load_and_preprocess_image(img):
@@ -46,3 +48,4 @@ def get_gemini_response(input_text, image):
     model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content([input_text, image])
     return response.text
+

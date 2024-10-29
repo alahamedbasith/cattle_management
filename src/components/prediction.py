@@ -2,10 +2,11 @@
 import os
 import pandas as pd
 import json
+import logging
 from tensorflow.keras.models import load_model
 
 # Define the data directory paths
-DATA_DIR = os.path.join(os.getcwd(), 'data')  # Adjust to your actual data directory
+DATA_DIR = os.path.join(os.getcwd(), 'data')  
 MODELS_DIR = os.path.join(os.getcwd(), 'models')
 
 # Load the registration data
@@ -22,3 +23,4 @@ model_file = os.path.join(MODELS_DIR, 'vgg_model.h5')
 model = load_model(model_file)
 
 print("Model and data loaded successfully.")
+logging.info("Model and data loaded successfully.")
